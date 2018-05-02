@@ -13,7 +13,6 @@ export class AppController {
         let html =  fs.readFileSync(
             __dirname + '/html/index.html',
             'utf8',
-
         );
         html = html.replace('{{variable}}', contador);
         return html;
