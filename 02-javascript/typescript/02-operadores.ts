@@ -28,7 +28,6 @@ let arregloDeudasFamililares = [
     200
 ];
 
-
 // let arregloNumerosDos: Array<number> = [1,2];
 
 let sumarDosNumeros =
@@ -62,7 +61,6 @@ var resultadoSuma = arregloNumerosUno
 ;
 console.log('resultadoSuma', resultadoSuma);
 
-
 let totalEdadDeLosUsuarios = arregloUsuarios.reduce(
     (total: number, usuario: UsuarioArreglo) => total + usuario.edad,
     0
@@ -70,14 +68,12 @@ let totalEdadDeLosUsuarios = arregloUsuarios.reduce(
 
 console.log('totalEdad', totalEdadDeLosUsuarios);
 
-
 function calcularDeuda(edad: number): number {
     return arregloDeudasFamililares
         .reduce((totalDeuda, valorDeuda) =>
             (totalDeuda + (valorDeuda * (edad / 100)))
         )
 }
-
 
 const usuariosCasados = arregloUsuarios
     .map(
@@ -92,19 +88,23 @@ const usuariosCasados = arregloUsuarios
             return usuario;
         }
     )
+
     .filter(
         (usuario: UsuarioArreglo) => (usuario.deuda <= 310)
     )
+
     // .every( // AND
     //     (usuario: UsuarioArreglo) => {
-    //         return usuario.edad <= 30;
+    //     return usuario.edad <= 30;
     //     }
     // )
+
     .some( // OR
         (usuario: UsuarioArreglo) => {
             return usuario.edad >= 18;
         }
     );
+
 console.log('usuariosCasados', usuariosCasados);
 console.log('arregloUsuarios', arregloUsuarios);
 
