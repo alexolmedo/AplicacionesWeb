@@ -15,6 +15,7 @@ export class AppPeliculaController {
         this.peliculas.push(new Pelicula(parametros.nombre, parametros.estreno));
         return this.peliculas ;
     }
+
 }
 
 class Pelicula {
