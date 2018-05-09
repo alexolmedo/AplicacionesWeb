@@ -9,12 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_pelicula_controller_1 = require("./app.pelicula-controller");
+const parametros_controller_1 = require("./parametros.controller");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [],
-        controllers: [app_controller_1.AppController, app_pelicula_controller_1.AppPeliculaController],
+        controllers: [app_controller_1.AppController, app_pelicula_controller_1.AppPeliculaController, parametros_controller_1.ParametrosController],
         components: [],
     })
 ], AppModule);
