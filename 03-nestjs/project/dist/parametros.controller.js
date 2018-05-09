@@ -13,7 +13,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const usuario_service_1 = require("./usuario.service");
 let ParametrosController = class ParametrosController {
+    constructor(_usuarioService) {
+        this._usuarioService = _usuarioService;
+    }
     recuperarParametros(request, response, paramParams, queryParams, bodyParams) {
         const respuesta = {
             paramParams: paramParams,
@@ -47,6 +51,17 @@ let ParametrosController = class ParametrosController {
         console.log(respuesta);
         return response.redirect('/Pelicula/mostrarCartelera');
     }
+    recuperarUsuarios() {
+        return this._usuarioService.arregloUsuarios;
+    }
+    anadirUsuario(bodyParams) {
+        const usuario = new usuario_service_1.Usuario(bodyParams.nombre, bodyParams.apellido, bodyParams.edad);
+        return this._usuarioService.agregarUsuario(usuario);
+    }
+    borrarUsuario(bodyParams) {
+        const usuario = new usuario_service_1.Usuario(bodyParams.nombre, bodyParams.apellido, bodyParams.edad);
+        return this._usuarioService.borrarUsuario(usuario);
+    }
 };
 __decorate([
     common_1.Post('recuperar/:id/:materia'),
@@ -79,8 +94,29 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", void 0)
 ], ParametrosController.prototype, "requestResponse", null);
+__decorate([
+    common_1.Get('recuperarUsuarios'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ParametrosController.prototype, "recuperarUsuarios", null);
+__decorate([
+    common_1.Post('anadirUsuario'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ParametrosController.prototype, "anadirUsuario", null);
+__decorate([
+    common_1.Delete('borrarUsuario'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ParametrosController.prototype, "borrarUsuario", null);
 ParametrosController = __decorate([
-    common_1.Controller('Parametros')
+    common_1.Controller('Parametros'),
+    __metadata("design:paramtypes", [usuario_service_1.UsuarioService])
 ], ParametrosController);
 exports.ParametrosController = ParametrosController;
 //# sourceMappingURL=parametros.controller.js.map
