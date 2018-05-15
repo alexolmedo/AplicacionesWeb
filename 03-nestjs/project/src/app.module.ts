@@ -4,13 +4,15 @@ import {AppPeliculaController} from "./app.pelicula-controller";
 import {ParametrosController} from "./parametros.controller";
 import {UsuarioService} from "./usuario.service";
 import {LogMiddleware} from "./log.middleware";
+import {UsuarioController} from "./usuario.controller";
 
 @Module({
   imports: [], // Importar otros modulos
   controllers: [
     AppController,
     AppPeliculaController,
-    ParametrosController
+    ParametrosController,
+    UsuarioController,
   ],
   components: [
     UsuarioService

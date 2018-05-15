@@ -12,6 +12,7 @@ const app_pelicula_controller_1 = require("./app.pelicula-controller");
 const parametros_controller_1 = require("./parametros.controller");
 const usuario_service_1 = require("./usuario.service");
 const log_middleware_1 = require("./log.middleware");
+const usuario_controller_1 = require("./usuario.controller");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -26,7 +27,8 @@ AppModule = __decorate([
         controllers: [
             app_controller_1.AppController,
             app_pelicula_controller_1.AppPeliculaController,
-            parametros_controller_1.ParametrosController
+            parametros_controller_1.ParametrosController,
+            usuario_controller_1.UsuarioController,
         ],
         components: [
             usuario_service_1.UsuarioService
