@@ -11,13 +11,26 @@ const app_controller_1 = require("./app.controller");
 const app_pelicula_controller_1 = require("./app.pelicula-controller");
 const parametros_controller_1 = require("./parametros.controller");
 const usuario_service_1 = require("./usuario.service");
+const log_middleware_1 = require("./log.middleware");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(log_middleware_1.LogMiddleware)
+            .with('EPN', 1989)
+            .forRoutes(parametros_controller_1.ParametrosController, app_pelicula_controller_1.AppPeliculaController, app_controller_1.AppController);
+    }
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [],
-        controllers: [app_controller_1.AppController, app_pelicula_controller_1.AppPeliculaController, parametros_controller_1.ParametrosController],
-        components: [usuario_service_1.UsuarioService],
+        controllers: [
+            app_controller_1.AppController,
+            app_pelicula_controller_1.AppPeliculaController,
+            parametros_controller_1.ParametrosController
+        ],
+        components: [
+            usuario_service_1.UsuarioService
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

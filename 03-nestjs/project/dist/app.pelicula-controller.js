@@ -13,16 +13,36 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const usuario_service_1 = require("./usuario.service");
 let AppPeliculaController = class AppPeliculaController {
-    constructor() {
+    constructor(_usuarioService) {
+        this._usuarioService = _usuarioService;
         this.peliculas = [];
     }
     mostrarCartelera() {
         return this.peliculas;
     }
     anadirACartelera(parametros) {
-        this.peliculas.push(new Pelicula(parametros.nombre, parametros.estreno));
+        this.peliculas
+            .push(new Pelicula(parametros.nombre, parametros.estreno));
         return this.peliculas;
+    }
+    anadirACarteleraConQueryParameters(req, res) {
+        const paramtrosQuery = req.query;
+        this.peliculas
+            .push(new Pelicula(paramtrosQuery.nombre, paramtrosQuery.estreno));
+        return res.send(this.peliculas);
+    }
+    recuperarUsuarios() {
+        return this._usuarioService.arregloUsuarios;
+    }
+    anadirUsuario(bodyParams) {
+        const usuario = new usuario_service_1.Usuario(bodyParams.nombre, bodyParams.apellido, bodyParams.edad);
+        return this._usuarioService.agregarUsuario(usuario);
+    }
+    borrarUsuario(bodyParams) {
+        const usuario = new usuario_service_1.Usuario(bodyParams.nombre, bodyParams.apellido, bodyParams.edad);
+        return this._usuarioService.borrarUsuario(usuario);
     }
 };
 __decorate([
@@ -39,8 +59,38 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AppPeliculaController.prototype, "anadirACartelera", null);
+__decorate([
+    common_1.Post('mostrarCartelera'),
+    common_1.HttpCode(201),
+    __param(0, common_1.Req()),
+    __param(1, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppPeliculaController.prototype, "anadirACarteleraConQueryParameters", null);
+__decorate([
+    common_1.Get('recuperarUsuarios'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppPeliculaController.prototype, "recuperarUsuarios", null);
+__decorate([
+    common_1.Post('anadirUsuario'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppPeliculaController.prototype, "anadirUsuario", null);
+__decorate([
+    common_1.Delete('borrarUsuario'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppPeliculaController.prototype, "borrarUsuario", null);
 AppPeliculaController = __decorate([
-    common_1.Controller('Pelicula')
+    common_1.Controller('Pelicula'),
+    __metadata("design:paramtypes", [usuario_service_1.UsuarioService])
 ], AppPeliculaController);
 exports.AppPeliculaController = AppPeliculaController;
 class Pelicula {
