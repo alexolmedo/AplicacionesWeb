@@ -28,7 +28,7 @@ AppModule = __decorate([
             app_controller_1.AppController,
             app_pelicula_controller_1.AppPeliculaController,
             parametros_controller_1.ParametrosController,
-            usuario_controller_1.UsuarioController,
+            usuario_controller_1.UsuarioController
         ],
         components: [
             usuario_service_1.UsuarioService

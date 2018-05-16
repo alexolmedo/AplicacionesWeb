@@ -25,14 +25,15 @@ let UsuarioController = class UsuarioController {
         const enviaParametros = (enviaNombre && enviaApellido && enviaEdad);
         if (enviaParametros) {
             const nuevoUsuario = new usuario_service_1.Usuario(queryParametros.nombre, queryParametros.apellido, queryParametros.edad);
-            const usuarios = this._usuarioService.agregarUsuario(nuevoUsuario);
+            const usuarios = this._usuarioService
+                .agregarUsuario(nuevoUsuario);
             return response.send(usuarios);
         }
         else {
             return response
                 .status(400)
                 .send({
-                mensaje: 'No envía parámatros',
+                mensaje: 'No envia parametros',
                 status: 400
             });
         }
@@ -45,10 +46,17 @@ let UsuarioController = class UsuarioController {
         response.cookie(parametros.nombre, parametros.valor);
         return response.send();
     }
-    buscar(request, response, m) {
+    buscarCookie(request, response) {
         const nombreCookie = request.params.nombreCookie;
-        request.cookie[nombreCookie];
-        return response.send();
+        const existeCookie = request.cookies[nombreCookie];
+        if (existeCookie) {
+            return response.send(existeCookie);
+        }
+        else {
+            return response
+                .status(400)
+                .send({ mensaje: 'No existe cookie', status: 400 });
+        }
     }
 };
 __decorate([
@@ -69,13 +77,13 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "anadirCookie", null);
 __decorate([
-    common_1.Get('buscar'),
+    common_1.Get('buscarCookie/:nombreCookie'),
     __param(0, common_1.Req()),
     __param(1, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "buscar", null);
+], UsuarioController.prototype, "buscarCookie", null);
 UsuarioController = __decorate([
     common_1.Controller('Usuario'),
     __metadata("design:paramtypes", [usuario_service_1.UsuarioService])

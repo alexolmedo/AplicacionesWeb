@@ -16,7 +16,8 @@ let UsuarioService = class UsuarioService {
         return this.arregloUsuarios;
     }
     borrarUsuario(usuario) {
-        const indice = this.arregloUsuarios.findIndex((usuarioObjeto) => usuarioObjeto === usuario);
+        const indice = this.arregloUsuarios
+            .findIndex((usuarioObjeto) => usuarioObjeto === usuario);
         this.arregloUsuarios.slice(indice, 1);
         return this.arregloUsuarios;
     }

@@ -7,26 +7,26 @@ import {LogMiddleware} from "./log.middleware";
 import {UsuarioController} from "./usuario.controller";
 
 @Module({
-  imports: [], // Importar otros modulos
-  controllers: [
-    AppController,
-    AppPeliculaController,
-    ParametrosController,
-    UsuarioController,
-  ],
-  components: [
-    UsuarioService
-  ], // Componentes
+    imports: [], // Importar otros modulos
+    controllers: [
+        AppController,
+        AppPeliculaController,
+        ParametrosController,
+        UsuarioController
+    ],
+    components: [
+        UsuarioService
+    ], // Componentes
 })
 export class AppModule implements NestModule {
-  configure(consumer: MiddlewaresConsumer) {
-    consumer
-      .apply(LogMiddleware)
-      .with('EPN', 1989)
-      .forRoutes(
-        ParametrosController,
-        AppPeliculaController,
-        AppController
-      );
-  }
+    configure(consumer: MiddlewaresConsumer) {
+        consumer
+            .apply(LogMiddleware)
+            .with('EPN', 1989)
+            .forRoutes(
+                ParametrosController,
+                AppPeliculaController,
+                AppController
+            );
+    }
 }

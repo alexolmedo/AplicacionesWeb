@@ -14,10 +14,10 @@ const fs = require('fs');
 let contador = 0;
 let AppController = class AppController {
     root() {
-        console.log('Entró al método');
+        console.log('Entro al metodo');
         contador++;
         let datosArchivo;
-        let html = fs.readFileSync(__dirname + '/html/index.html', 'utf8');
+        let html = fs.readFileSync(__dirname + '/html/Index.html', 'utf8');
         html = html.replace('{{variable}}', contador);
         return html;
     }
@@ -26,7 +26,7 @@ __decorate([
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], AppController.prototype, "root", null);
 AppController = __decorate([
     common_1.Controller()
