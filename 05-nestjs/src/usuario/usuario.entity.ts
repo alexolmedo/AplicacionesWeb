@@ -18,7 +18,7 @@ export class UsuarioEntity {
 
     @OneToMany(
         type => FotoEntity,
-        foto => foto.usuarioID
+        foto => foto.usuario
     )
 
     fotos: FotoEntity[];

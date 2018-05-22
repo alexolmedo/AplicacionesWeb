@@ -1,12 +1,23 @@
-import { Get, Controller } from '@nestjs/common';
-import { AppService } from './app.service';
+import {Get, Controller, Post, Body} from '@nestjs/common';
+import {AppService} from './app.service';
+import {UsuarioPipe} from "./usuario/usuario.pipe";
+import {USUARIO_SCHEMA} from "../dist/usuario/usuario.schema";
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+    constructor(private readonly appService: AppService) {
+    }
 
-  @Get()
-  root(): string {
-    return this.appService.root();
-  }
+    @Get()
+    root(): string {
+        return this.appService.root();
+    }
+
+    @Post('Crear')
+    crear(@Body(new UsuarioPipe(USUARIO_SCHEMA)) usuario) {
+        console.log('Usuario Correcto');
+        return usuario;
+    }
+
+
 }
