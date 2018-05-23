@@ -6,19 +6,21 @@ import {UsuarioGuard} from "../guards/usuario.guard";
 export class UsuarioController {
 
     @Get('mostrar')
-    @ReflectMetadata('nombreDato', 'ValorM')
-    @ReflectMetadata('permiso', 'privado')
-    mostrar(){
-        return 'Ok mostrar'
-
+    @ReflectMetadata('nombreDato','ValorM')
+    @ReflectMetadata('necesitaValidacion',false)
+    @ReflectMetadata('roles',[
+        'usuario',
+        'administradores',
+        'estudiantes'
+    ])
+    mostrar() {
+        return 'Ok mostrar';
     }
-
     @Get('crear')
-    @ReflectMetadata('nombreDato', 'ValorC')
-    @ReflectMetadata('permiso', 'publico')
-
-    crear(){
-        return 'Ok crear'
+    @ReflectMetadata('nombreDato','ValorC')
+    @ReflectMetadata('permiso','publico')
+    @ReflectMetadata('necesitaValidacion',true)
+    crear() {
+        return 'Ok crear';
     }
-
 }
