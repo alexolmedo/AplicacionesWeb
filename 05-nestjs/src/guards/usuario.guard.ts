@@ -8,7 +8,12 @@ export class UsuarioGuard implements CanActivate {
         boolean |
         Promise<boolean> |
         Observable<boolean> {
+        const request = context
+            .switchToHttp()
+            .getRequest();
+        console.log('Request', request);
+        console.log('Headers', request.headers);
 
-        return undefined;
+        return false;
     }
 }
