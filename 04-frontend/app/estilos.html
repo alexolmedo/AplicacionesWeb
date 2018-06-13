@@ -2,63 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style> /*Estilos CSS*/
+    <title>Estilos</title>
 
-    /*Mediante ID*/
-    #tablita {
-        /*propiedad: valorDeLaPropiedad*/
-        border-style: solid;
-        border-width: 4px;
-        border-color: black;
-    }
+    <style> /* ESTILOS CSS */
+    /* Mediante ID */
+    /*#tablita {*/
+        /*!* propiedad:valorDeLaPropiedad; *!*/
+        /*border-style: solid;*/
+        /*border-width: 4px;*/
+        /*border-color: #000;*/
+    /*}*/
 
-    /*Mediante Etiqueta*/
-    td,th{
-        border-style: solid;
-        border-width: 1px;
-        border-color: brown;
-    }
+    /* Mediante Etiqueta  */
 
     table {
         border-style: solid;
         border-width: 4px;
     }
 
-    /*Mediante Clases*/
+    td, th {
+        /* propiedad:valorDeLaPropiedad; */
+        border-style: solid;
+        border-width: 1px;
+        border-color: brown;
+    }
+
+    /* Mediante classes*/
     .borde-cafe {
         border-color: brown;
     }
+
     .borde-azul {
-        border-color: deepskyblue;
+        border-color: blue;
     }
+
+
+    .rojo {
+        color: red;
+    }
+
+    .verde {
+        color: green;
+    }
+
+
     </style>
+
+    <style>
+        .rojo{
+            color: yellow;
+        }
+    </style>
+
+    <link rel="stylesheet"
+          href="estilos/estilos-generales.css">
 
 </head>
 <body>
-<table id="tablita" class="borde-cafe" style="border-color: greenyellow; color: red";>
+
+<h1>Javascript</h1>
+
+<div id="contenido">
+
+</div>
+
+<button onclick="crearContenido()">Crear contenido</button>
+
+<img id="imagen"
+     src="https://psyciencia-jcne1wfflvxc1r.netdna-ssl.com/wp-content/uploads/2015/11/cuatro-dias-a-la-semana-de-clases-696x427.jpg"
+     alt="Niños en clases">
+
+<button onclick="cambiarImagen()"> Cambiar Imagen </button>
+
+<button onmouseover="cambiarBordeTabla()"> Cambiar borde tabla </button>
+
+<button onclick="traerDatos()">Traer datos</button>
+<button onclick="traerDatos()">Traer datos</button>
+
+
+ctrl + alt + l
+
+
+<table id="tablita"
+       class="borde-cafe"
+>
+    <tr class="rojo">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </tr>
+    <tr>
+        <td>Adrian</td>
+        <td>Sarzosa</td>
+        <td>29</td>
+    </tr>
+    <tr>
+        <td>Vicente asdf asd fsad sadf sad fsad f adf sd fsaf sad fsadf sadf</td>
+        <td>Eguez</td>
+        <td>29</td>
+    </tr>
+</table>
+
+<table class="rojo verde borde-azul  ">
     <tr>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Edad</th>
     </tr>
     <tr>
-        <td>Alexander</td>
-        <td>Olmedo</td>
-        <td>22</td>
-    </tr>
-</table>
-<table class="borde-azul">
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Edad</th>
+        <td>Adrian</td>
+        <td>Sarzosa</td>
+        <td>29</td>
     </tr>
     <tr>
-        <td>Alexander</td>
-        <td>Olmedo</td>
-        <td>22</td>
+        <td>Vicente asdf asd fsad sadf sad fsad f adf sd fsaf sad fsadf sadf</td>
+        <td>Eguez</td>
+        <td>29</td>
     </tr>
 </table>
+
+
+
+<script>
+    console.log('Hola mundo');
+    console.log(15 + 20);
+
+</script>
+
+<script src="js/inicio.js"></script>
+
+
 </body>
 </html>
