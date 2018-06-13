@@ -3,8 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style> /*Estilos CSS*/
+
+    /*Mediante ID*/
+    #tablita {
+        /*propiedad: valorDeLaPropiedad*/
+        border-style: solid;
+        border-width: 4px;
+        border-color: black;
+    }
+
+    /*Mediante Etiqueta*/
+    td,th{
+        border-style: solid;
+        border-width: 1px;
+        border-color: brown;
+    }
+
+    table {
+        border-style: solid;
+        border-width: 4px;
+    }
+
+    /*Mediante Clases*/
+    .borde-cafe {
+        border-color: brown;
+    }
+    .borde-azul {
+        border-color: deepskyblue;
+    }
+    </style>
+
 </head>
 <body>
-
+<table id="tablita" class="borde-cafe" style="border-color: greenyellow; color: red";>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </tr>
+    <tr>
+        <td>Alexander</td>
+        <td>Olmedo</td>
+        <td>22</td>
+    </tr>
+</table>
+<table class="borde-azul">
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </tr>
+    <tr>
+        <td>Alexander</td>
+        <td>Olmedo</td>
+        <td>22</td>
+    </tr>
+</table>
 </body>
 </html>
