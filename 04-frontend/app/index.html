@@ -74,7 +74,14 @@
 
     <h2>Formularios</h2>
     <button>hola mundo</button>
-    <form action="http://www.epn.edu.ec" method="get">
+    <form action="http://localhost:3000/Auth/emitir" method="post">
+
+        <label for="usuario">Usuario</label>
+        <input id = "usuario" type="text" name="usuario">
+
+        <label for="password">Password</label>
+        <input id = "password" type="text" name="password">
+
         <button type="button">No hago nada</button>
         <button type="submit">Enviar</button>
     </form>
