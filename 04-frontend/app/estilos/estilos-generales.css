@@ -1,63 +1,67 @@
 
-.rojo{
-    color: red;
+.rojo {
+    color: gray;
 }
 
-.titulo{
+.titulo {
     font-weight: bolder;
     color: blue;
-    backround-color: red;
+    background-color: red;
     font-size: 10px;
     animation-name: colores;
     animation-duration: 8s;
-    animation-delay: 4s;
+    animation-delay: 2s;
     animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
+    animation-direction: alternate;
     animation-timing-function: ease-in;
-    /*-webkit-transition: font-size  2s, color;*/
-    /*transition: font-size 2s, color;*/
+    /*-webkit-transition: font-size 2s;*/
+    /*transition: font-size 2s;*/
 }
-
-/*.titulo:hover{*/
-    /*color: green;*/
-    /*font-size: 5px;*/
+/*.titulo:hover {*/
+    /*color: greenyellow;*/
+    /*font-size: 60px;*/
     /*cursor: pointer;*/
 /*}*/
 
+
+
 @keyframes colores {
-    0% {
+    0%   {
         background-color: red;
         font-size: 10px;
     }
-    40% {
+    40%  {
         background-color: yellow;
         font-size: 14px;
     }
-    60% {
+    60%  {
         background-color: blue;
         font-size: 34px;
     }
     100% {
-        background-color: green;
+        background-color: red;
         font-size: 10px;
     }
-
 }
 
-.azul {
-    color: blue;
-}
 
-.verde {
-    color: green;
-}
 
-.amarillo {
-    color: yellow;
-}
 
-.cafe {
-    color: brown;
+
+.azul{
+    color:blue;
+}
+.verde{
+    color:green;
+}
+.amarillo{
+    color:yellow;
+}
+.rojo{
+    color:red;
+}
+.cafe{
+    color:brown;
 }
 
 
