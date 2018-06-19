@@ -2,3 +2,16 @@
 .rojo{
     color: gray;
 }
+
+.titulo{
+    font-weight: bolder;
+    color: blue;
+    -webkit-transition: font-size  2s, color;
+    transition: font-size 2s, color;
+}
+
+.titulo:hover{
+    color: green;
+    font-size: 5px;
+    cursor: pointer;
+}
