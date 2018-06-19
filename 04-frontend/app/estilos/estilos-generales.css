@@ -1,17 +1,67 @@
 
 .rojo{
-    color: gray;
+    color: red;
 }
 
 .titulo{
     font-weight: bolder;
     color: blue;
-    -webkit-transition: font-size  2s, color;
-    transition: font-size 2s, color;
+    backround-color: red;
+    font-size: 10px;
+    animation-name: colores;
+    animation-duration: 8s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in;
+    /*-webkit-transition: font-size  2s, color;*/
+    /*transition: font-size 2s, color;*/
 }
 
-.titulo:hover{
-    color: green;
-    font-size: 5px;
-    cursor: pointer;
+/*.titulo:hover{*/
+    /*color: green;*/
+    /*font-size: 5px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+@keyframes colores {
+    0% {
+        background-color: red;
+        font-size: 10px;
+    }
+    40% {
+        background-color: yellow;
+        font-size: 14px;
+    }
+    60% {
+        background-color: blue;
+        font-size: 34px;
+    }
+    100% {
+        background-color: green;
+        font-size: 10px;
+    }
+
 }
+
+.azul {
+    color: blue;
+}
+
+.verde {
+    color: green;
+}
+
+.amarillo {
+    color: yellow;
+}
+
+.cafe {
+    color: brown;
+}
+
+
+
+
+
+
